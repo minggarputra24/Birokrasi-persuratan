@@ -1,7 +1,7 @@
 <div class="container">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
 
         <div class="col-xl-10 col-lg-12 col-md-9">
 
@@ -14,7 +14,7 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">IKI TES LO</h1>
+                                    <h1 class="h4 text-gray-900 mb-4"><b>LOGIN</b></h1>
                                 </div>
                                 <form class="user">
                                     <div class="form-group">
@@ -34,12 +34,12 @@
                                     </button>
                                 </form>
                                 <hr>
-                                <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="small" href="register.html">Create an Account!</a>
-                                </div>
+                                <table>
+                                <tr>
+                                <td><a class="mr-5" href="forgot-password.html">Lupa Password?</a></td>
+                                <td> <a class="ml-5" href="register.html">Buat Akun Baru</a></td>
+                                </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
