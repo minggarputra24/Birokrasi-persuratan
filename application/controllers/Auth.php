@@ -9,4 +9,11 @@ class Auth extends CI_Controller
         $this->load->view('auth/login');
         $this->load->view('templates/auth_footer');
     }
+
+    public function registrasi()
+    {
+        $this->load->view('templates/auth_header');
+        $this->load->view('auth/registrasi');
+        $this->load->view('templates/auth_footer');
+    }
 }
