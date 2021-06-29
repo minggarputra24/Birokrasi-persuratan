@@ -11,7 +11,7 @@
                 <div class="col-lg-6">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4"><b> Registrasi </b></h1>
+                            <h1 class="h4 text-gray-900 mb-4"><b> REGISTRASI </b></h1>
                         </div>
                         <form class="user" method="post" action="<?= base_url('auth/registrasi') ?>">
                             <!-- <div class="form-group row">
@@ -48,7 +48,7 @@
                             <a class="small" href="forgot-password.html">Forgot Password?</a>
                         </div> -->
                         <div class="text-center">
-                            <a  href="<?= base_url('auth'); ?>" class="small">Sudah punya akun? Login!</a>
+                            <a  href="<?= base_url('auth'); ?>" class="justify-content">Sudah punya akun? Login!</a>
                         </div>
                     </div>
                 </div>

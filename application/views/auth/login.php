@@ -16,6 +16,9 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4"><b>LOGIN</b></h1>
                                 </div>
+                                
+                                <?= $this->session->flashdata('message');?> 
+
                                 <form class="user">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="usernameHelp" placeholder="Masukkan Username ">
@@ -30,14 +33,16 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Login
+                                        LOGIN
                                     </button>
                                 </form>
                                 <hr>
                                 <table>
                                 <tr>
-                                <td><a href="forgot-password.html" class="mr-5" >Lupa Password?</a></td>
-                                <td> <a href="<?= base_url('auth/registrasi'); ?>" class="ml-5" >Buat Akun Baru</a></td>
+                                <!-- <td><a href="forgot-password.html" class="mr-5" >Lupa Password?</a></td> -->
+                                <div class="text-center">
+                                <a href="<?= base_url('auth/registrasi'); ?>" class="justify-content">Registrasi Akun Baru</a>
+                                </div>
                                 </tr>
                                 </table>
                             </div>
