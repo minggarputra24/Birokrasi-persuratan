@@ -18,10 +18,10 @@
                                 </div>
                                 <form class="user">
                                     <div class="form-group">
-                                        <input type="number" class="form-control form-control-user" id="nip" name="nip" aria-describedby="nipHelp" placeholder="Masukkan NIP Anda">
+                                        <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="usernameHelp" placeholder="Masukkan Username ">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -36,8 +36,8 @@
                                 <hr>
                                 <table>
                                 <tr>
-                                <td><a class="mr-5" href="forgot-password.html">Lupa Password?</a></td>
-                                <td> <a class="ml-5" href="register.html">Buat Akun Baru</a></td>
+                                <td><a href="forgot-password.html" class="mr-5" >Lupa Password?</a></td>
+                                <td> <a href="<?= base_url('auth/registrasi'); ?>" class="ml-5" >Buat Akun Baru</a></td>
                                 </tr>
                                 </table>
                             </div>
