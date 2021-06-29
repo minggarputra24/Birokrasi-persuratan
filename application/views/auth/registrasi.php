@@ -13,7 +13,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4"><b> Registrasi </b></h1>
                         </div>
-                        <form class="user">
+                        <form class="user" method="post" action="<?= base_url('auth/registrasi') ?>">
                             <!-- <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
@@ -23,17 +23,20 @@
                                 </div>
                             </div> -->
                             <div class="form-group">
-                                <input type="name" class="form-control form-control-user" id="name" placeholder="Nama Lengkap">
+                                <input type="name" class="form-control form-control-user" id="name" name="name" placeholder="Nama Lengkap" value="<?= set_value('name'); ?>">
+                                    <?= form_error('name', '<small class="text-danger pl-3">', ' </small>'); ?> 
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="username" placeholder="Username">
+                                <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username'); ?>">
+                                <?= form_error('username', '<small class="text-danger pl-3">', ' </small>'); ?>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="password" class="form-control form-control-user" id="Password" placeholder="Password">
+                                    <input type="password" class="form-control form-control-user" id="Password" name="password" placeholder="Password">
+                                    <?= form_error('password', '<small class="text-danger pl-3">', ' </small>'); ?> 
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="password" class="form-control form-control-user" id="RepeatPassword" placeholder="Ulangi Password">
+                                    <input type="password" class="form-control form-control-user" id="RepeatPassword" name="repeatPassword" placeholder="Ulangi Password">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
