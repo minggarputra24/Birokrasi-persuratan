@@ -19,7 +19,7 @@
 
                                 <?= $this->session->flashdata('message'); ?>
 
-                                <form class="user" method="post" action="<?= base_url('user'); ?>">
+                                <form class="user" method="post" action="<?= base_url('auth'); ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="usernameHelp" placeholder="Masukkan Username " value="<?= set_value('username'); ?>">
                                         <?= form_error('username', '<small class="text-danger pl-3">', ' </small>'); ?>
