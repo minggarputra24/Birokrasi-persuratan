@@ -5,7 +5,7 @@ class Admin extends CI_Controller
 {
     public function index()
     {
-        $data['title'] = 'Bereanda';
+        $data['title'] = 'Beranda';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
         
