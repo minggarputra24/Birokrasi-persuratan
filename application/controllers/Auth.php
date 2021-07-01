@@ -103,7 +103,12 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('role_id');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-    Anda Berhasil Keluar!</div>');
+        Anda Berhasil Keluar!</div>');
         redirect('auth');
+    }
+
+    public function blocked()
+    {
+        $this->load->view('auth/blocked');
     }
 }
