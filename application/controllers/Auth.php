@@ -10,6 +10,11 @@ class Auth extends CI_Controller
     }
     public function index()
     {
+
+        if ($this->session->userdata('username')) {
+            redirect('user');
+        }
+
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
@@ -29,20 +34,20 @@ class Auth extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $user = $this->db->get_where('user', ['username' => $username])->row_array(); 
+        $user = $this->db->get_where('user', ['username' => $username])->row_array();
 
         //jika usernya ada
-        if($user) {
+        if ($user) {
             //jika usernya aktif
-            if($user['is_active'] == 1) {
+            if ($user['is_active'] == 1) {
                 //
-                if(password_verify($password, $user['password'])) {
+                if (password_verify($password, $user['password'])) {
                     $data = [
                         'username' => $user['username'],
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
-                    if($user['role_id'] == 1) {
+                    if ($user['role_id'] == 1) {
                         redirect('admin');
                     } else {
                         redirect('user');
@@ -66,6 +71,11 @@ class Auth extends CI_Controller
 
     public function registrasi()
     {
+
+        if ($this->session->userdata('username')) {
+            redirect('user');
+        }
+
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[repeatPassword]', [

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 05:06 AM
+-- Generation Time: Jul 02, 2021 at 04:26 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -44,7 +44,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `username`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (8, 'coba', 'coba', 'default.jpg', '$2y$10$Qc12.AJXt7cPmFihSyxhRe1Ruohneny8rCHnzVJrjEmbCGvG4MAMy', 1, 1, 1624953599),
-(10, 'user', 'user', 'default.jpg', '$2y$10$xS9ESzQicjsdEQcoKCBYzeaSAhoMYx1KypUAMessqh5tTTgzKaNoW', 2, 1, 1625025877);
+(10, 'user', 'user', 'default.jpg', '$2y$10$xS9ESzQicjsdEQcoKCBYzeaSAhoMYx1KypUAMessqh5tTTgzKaNoW', 2, 1, 1625025877),
+(11, 'admin', 'admin', 'default.jpg', '$2y$10$tks6o3zQuU7a6lz8YGXzMeLfKpyem6vHeK4.FlUmqrVUaQWL8lCr.', 1, 1, 1625128718);
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,10 @@ CREATE TABLE `user_access_menu` (
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
-(3, 2, 2);
+(3, 2, 2),
+(10, 1, 7),
+(11, 2, 3),
+(31, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -83,9 +87,11 @@ CREATE TABLE `user_menu` (
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
-(1, 'Beranda'),
+(1, 'Admin'),
 (2, 'User'),
-(3, 'Pesuratan');
+(3, 'Pesuratan'),
+(4, 'Beranda'),
+(7, 'Menu');
 
 -- --------------------------------------------------------
 
@@ -128,7 +134,10 @@ CREATE TABLE `user_sub_menu` (
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Beranda', 'admin', 'fas fa-fw fa-home', 1),
 (2, 2, 'User', 'User', 'fas fa-fw fa-user-tie', 1),
-(5, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1);
+(5, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
+(6, 7, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1),
+(7, 7, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
+(10, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1);
 
 --
 -- Indexes for dumped tables
@@ -172,19 +181,19 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -196,7 +205,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
