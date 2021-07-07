@@ -55,26 +55,71 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function changeAccess()
-    {
-        $menu_id = $this->input->post('menuId');
-        $role_id = $this->input->post('roleId');
+    // public function changeAccess()
+    // {
+    //     $menu_id = $this->input->post('menuId');
+    //     $role_id = $this->input->post('roleId');
 
-        $data = [
-            'role_id' => $role_id,
-            'menu_id' => $menu_id
-        ];
+    //     $data = [
+    //         'role_id' => $role_id,
+    //         'menu_id' => $menu_id
+    //     ];
 
-        $result = $this->db->get_where('user_access_menu', $data);
+    //     $result = $this->db->get_where('user_access_menu', $data);
 
-        if($result->num_rows() < 1 ){
-            $this->db->insert('user_access_menu', $data);
-        }else{
-            $this->db->delete('user_access_menu', $data);    
-        }
+    //     if($result->num_rows() < 1 ){
+    //         $this->db->insert('user_access_menu', $data);
+    //     }else{
+    //         $this->db->delete('user_access_menu', $data);    
+    //     }
 
-        $this->session->set_flashdata('message', '<div class="alert 
-        alert-success" role="alert">Akses berhasil diubah!</div>');
-    }
+    //     $this->session->set_flashdata('message', '<div class="alert 
+    //     alert-success" role="alert">Akses berhasil diubah!</div>');
+    // }
+
+    // public function changePassword()
+    // {
+    //     $data['title'] = 'Change Password';
+    //     $data['user'] = $this->db->get_where('user', ['username' =>
+    //     $this->session->userdata('username')])->row_array();
+
+    //     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+    //     $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
+    //     $this->form_validation->set_rules('new_password2', 'Repeat Password', 'required|trim|min_length[3]|matches[new_password1]');
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('templates/header', $data);
+    //         $this->load->view('templates/sidebar', $data);
+    //         $this->load->view('templates/topbar', $data);
+    //         $this->load->view('user/changePassword', $data);
+    //         $this->load->view('templates/footer');
+    //     } else {
+    //         $current_password = $this->input->post('current_password');
+    //         $new_password = $this->input->post('new_password1');
+
+    //         if(!password_verify($current_password, $data['user']['password'])) {
+    //             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+    //             Wrong current password!</div>');
+    //             redirect('user/changepassword');
+    //         } else {
+    //             if ($current_password == $new_password) {
+    //                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+    //                 New password cannot be the same as current password!</div>');
+    //                 redirect('user/changepassword');
+    //             } else {
+    //                 //password sudah oke
+    //                 $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+    //                 $this->db->set('password', $password_hash);
+    //                 $this->db->where('username', $this->session->userdata('username'));
+    //                 $this->db->update('user');
+
+    //                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+    //                 Password changed!</div>');
+    //                 redirect('user/changepassword');
+    //             }
+    //         }
+    //     }
+    // }
 
 }

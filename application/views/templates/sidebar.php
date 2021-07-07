@@ -74,15 +74,15 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Menu Transaksi:</h6>
-                    <a class="collapse-item" href="buttons.html">
+                    <a class="collapse-item" href="<?= base_url('user/suratMasuk'); ?>">
                         <i class="fas fa-envelope"></i>
                         <span>Surat Masuk</span>
                     </a>
-                    <a class="collapse-item" href="cards.html">
+                    <a class="collapse-item" href="<?= base_url('user/suratKeluar'); ?>">
                         <i class="fas fa-envelope-open-text"></i>
                         <span>Surat Keluar</span>
                     </a>
-                    <a class="collapse-item" href="cards.html">
+                    <a class="collapse-item" href="<?= base_url('user/disposisi'); ?>">
                         <i class="fas fa-inbox"></i>
                         <span>Disposisi</span>
                     </a>
@@ -90,6 +90,8 @@
             </div>
         </li>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
         <!-- <hr class="sidebar-divider">
 <div class="sidebar-heading">
     User
@@ -106,6 +108,7 @@
             Keluar
         </div>
 
+        
         <!-- Nav Item - Pages Collapse Menu -->
         <!-- <li class="nav-item">
     <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
@@ -170,6 +173,9 @@
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Keluar</span></a>
         </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
