@@ -63,12 +63,29 @@
         </thead>
         <tbody>
             <tr>
+<<<<<<< Updated upstream
                 <td>Tiger Nixon</td>
                 <td>System Architect</td>
                 <td>Edinburgh</td>
                 <td>61</td>
                 <td>2011/04/25</td>
                 <td>$320,800</td>
+=======
+                <td scope="row" class="text-center">1</td>
+                <td class="text-center"> contoh</td>
+                <td class="text-center"> contoh</td>
+                <td class="text-center"> contoh</td>
+                <td class="text-center"> contoh</td>
+                <td class="text-center"> contoh</td>
+                <td class="text-center"> contoh</td>
+                <td class="text-center">
+                    <a  class="btn btn-sm btn-success mb-2">Update</a>
+                    <a  class="btn btn-sm btn-danger mb-2">Delete</a> <br>
+                    <a  class="btn btn-sm btn-warning mb-3">Print</a>
+                    <a  class="btn btn-sm btn-info mb-3">Disposisi</a> <br>
+                    <a  class="btn btn-sm btn-warning mb-3">Print</a>
+                </td>
+>>>>>>> Stashed changes
             </tr>
             <tr>
                 <td>Garrett Winters</td>
