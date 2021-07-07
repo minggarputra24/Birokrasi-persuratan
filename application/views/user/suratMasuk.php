@@ -61,16 +61,9 @@
                 <td class="text-center"> contoh</td>
                 <td class="text-center">
                     <a  class="btn btn-sm btn-success mb-2">Update</a>
-<<<<<<< Updated upstream
-                    <a  class="btn btn-sm btn-danger mb-2">Delete</a>
-                    <br>
-                    <a  class="btn btn-sm btn-warning mb-1">Print</a>
-                    <a  class="btn btn-sm btn-info mb-1">Disposisi</a>
-=======
                     <a  class="btn btn-sm btn-danger mb-2">Delete</a> <br>
                     <a  class="btn btn-sm btn-warning mb-3">Print</a>
                     <a  class="btn btn-sm btn-info mb-3">Disposisi</a>
->>>>>>> Stashed changes
                 </td>
             </tr>
         
