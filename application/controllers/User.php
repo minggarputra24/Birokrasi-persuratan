@@ -135,7 +135,7 @@ class User extends CI_Controller
     }
 
     public function suratKeluar (){
-        $data['title'] = 'Surat Kellular';
+        $data['title'] = 'Surat Keluar';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
