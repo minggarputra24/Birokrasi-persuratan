@@ -4,11 +4,11 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-8">
             <?= $this->session->flashdata('message'); ?>
         </div>
-    </div>
+    </div> -->
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">

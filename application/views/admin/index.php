@@ -92,6 +92,9 @@
                             </p>
                         <!-- <h5 class="card-title">Surat Masuk</h5> -->
                         <p class="card-text mt-3">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="<?= base_url('user/suratKeluar'); ?>">
+                        <button class="btn btn-primary"> Selengkapnya </button>
+                        </a>
                     </div>
                     <div class="card-footer bg-gradient-secondary">
                         <small class="text-white">Last updated 3 mins ago</small>
@@ -108,6 +111,9 @@
                             </p>
                         <!-- <h5 class="card-title">Surat Masuk</h5> -->
                         <p class="card-text mt-3">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="<?= base_url('user/disposisi'); ?>">
+                        <button class="btn btn-primary"> Selengkapnya </button>
+                        </a>
                     </div>
                     <div class="card-footer bg-gradient-secondary">
                         <small class="text-white">Last updated 3 mins ago</small>
