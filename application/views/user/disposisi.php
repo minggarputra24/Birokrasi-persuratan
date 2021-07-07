@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-3 text-gray-800"><i class="fas fa-inbox"></i> <?= $title; ?></h1>
 
     <div class="row">
         <div class="col-lg-8">
@@ -10,7 +10,16 @@
         </div>
     </div>
 
-    <table class="table table-bordered table-striped mb-4">
+    <hr class="border border-dark border-5 mt-1">
+    
+    
+    <a href="<?= base_url('user/tambahDisposisi');?>" class="btn btn-primary mb-3">
+        <i class="fas fa-inbox"></i>
+        Tambah Disposisi
+    </a>
+
+    <div class="card mb-5 col-lg"> 
+    <table class="table table-bordered table-striped mt-2">
         <thead class="table-dark">
         <tr>
             <th class="text-center">No</th>
@@ -20,7 +29,7 @@
             <th class="text-center">Diterima tanggal</th>
             <th class="text-center">No. Agenda</th>
             <th class="text-center">Perihal</th>
-            <th colspan="4" class="text-center">Aksi</th>
+            <!-- <th colspan="4" class="text-center">Aksi</th> -->
         </tr>
         </thead>
         
@@ -32,11 +41,11 @@
                 <td class="text-center"> contoh</td>
                 <td class="text-center"> contoh</td>
                 <td class="text-center"> contoh</td>
-                <td class="text-center">
+                <!-- <td class="text-center">
                     <a  class="btn btn-sm btn-success mb-3">Update</a>
                     <a  class="btn btn-sm btn-danger mb-3">Delete</a>
                     <a  class="btn btn-sm btn-warning mb-3">Print</a>
-                </td>
+                </td> -->
             </tr>
         
     </table>
@@ -104,6 +113,8 @@
                         </tr>
                 </tbody>
             </table>
+    </div>    
+    
 </div>
 <!-- /.container-fluid -->
 
