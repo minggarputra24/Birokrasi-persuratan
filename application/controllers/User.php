@@ -15,11 +15,20 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('templates/footer');
+        $this->$this->form_validation->set_rules('noSk', 'NomorSuratKeluar', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/index', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->db->insert('surat_keluar', ['no_surat' => $this->input->post('no_surat')]);
+            $this->session->$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat Keluar Berhasil Ditambahkan!</div>');
+            redirect('suratKeluar');
+        }
     }
 
     public function edit()
@@ -97,7 +106,7 @@ class User extends CI_Controller
             $current_password = $this->input->post('current_password');
             $new_password = $this->input->post('new_password1');
 
-            if(!password_verify($current_password, $data['user']['password'])) {
+            if (!password_verify($current_password, $data['user']['password'])) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Wrong current password!</div>');
                 redirect('user/changepassword');
@@ -122,6 +131,7 @@ class User extends CI_Controller
         }
     }
 
+<<<<<<< Updated upstream
     public function users (){
         $data['title'] = 'Users';
         $data['user'] = $this->db->get_where('user', ['username' =>
@@ -135,6 +145,10 @@ class User extends CI_Controller
     }
 
     public function suratMasuk (){
+=======
+    public function suratMasuk()
+    {
+>>>>>>> Stashed changes
         $data['title'] = 'Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -148,6 +162,7 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+<<<<<<< Updated upstream
     public function tambahSuratMasuk (){
         $data['title'] = 'Form Tambah Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
@@ -161,18 +176,47 @@ class User extends CI_Controller
     }
 
     public function suratKeluar (){
+=======
+    public function suratKeluar()
+    {
+>>>>>>> Stashed changes
         $data['title'] = 'Surat Keluar';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
+        // $this->load->model('suratKeluar_model', 'suratKeluar');
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/suratKeluar', $data);
-        $this->load->view('templates/footer');
+        $data['surat_keluar'] = $this->db->get('surat_keluar')->result_array();
+        $this->form_validation->set_rules('no_surat', 'No Surat', 'required');
+        $this->form_validation->set_rules('tgl_suratKeluar', 'Tanggal Surat', 'required');
+        $this->form_validation->set_rules('pengirim', 'Pengirim', 'required');
+        $this->form_validation->set_rules('penerima', 'Penerima', 'required');
+        $this->form_validation->set_rules('perihal', 'Perihal', 'required');
+        $this->form_validation->set_rules('disposisi', 'Disposisi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/suratKeluar', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'no_surat' => $this->input->post('no_surat'),
+                'tgl_suratKeluar' => $this->input->post('tgl_suratKeluar'),
+                'pengirim' => $this->input->post('pengirim'),
+                'penerima' => $this->input->post('penerima'),
+                'no_surat' => $this->input->post('no_surat'),
+                'perihal' => $this->input->post('perihal'),
+                'disposisi' => $this->input->post('disposisi')
+            ];
+            $this->db->insert('surat_keluar', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat Baru Berhasil Ditambah!</div>');
+            redirect('user/suratKeluar');
+        }
     }
 
-    public function disposisi (){
+    public function disposisi()
+    {
         $data['title'] = 'Disposisi';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
