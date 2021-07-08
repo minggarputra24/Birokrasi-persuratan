@@ -6,6 +6,7 @@
 
     <!-- Topbar -->
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <!-- <p>TES</p> -->
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -19,14 +20,17 @@
             <li class="nav-item dropdown no-arrow d-sm-none">
                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-search fa-fw"></i>
+                    <i class="fas fa-search fa-fw">
+                    </i>
                 </a>
             </li>
 
             <!-- Nav Item - Alerts -->
             
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+            <div class="topbar-divider d-none d-sm-block">
+                
+            </div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">

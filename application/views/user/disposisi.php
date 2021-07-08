@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <hr class="border border-dark border-5 mt-1">
+    <hr class="border border-dark border-5 mt-0">
     
     
     <a href="<?= base_url('user/tambahDisposisi');?>" class="btn btn-primary mb-3">

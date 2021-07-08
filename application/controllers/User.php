@@ -122,6 +122,18 @@ class User extends CI_Controller
         }
     }
 
+    public function users (){
+        $data['title'] = 'Users';
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/users', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function suratMasuk (){
         $data['title'] = 'Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
