@@ -139,10 +139,24 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
+        $data['surat_masuk'] = $this->db->get('surat_masuk')->result_array();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/suratMasuk', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambahSuratMasuk (){
+        $data['title'] = 'Form Tambah Surat Masuk';
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/tambahSuratMasuk', $data);
         $this->load->view('templates/footer');
     }
 

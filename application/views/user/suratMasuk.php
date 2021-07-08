@@ -11,7 +11,7 @@
     </div> -->
 
     <hr class="border-dark border-5 mt-1">
-    <a href="#" class="btn btn-primary mb-3">
+    <a href="<?= base_url('user/tambahSuratMasuk') ;?>" class="btn btn-primary mb-3">
     <i class="fas fa-envelope-open-text"></i>
     Tambah Surat Masuk Baru
     </a>
@@ -50,6 +50,7 @@
             <th colspan="4" class="text-center">Aksi</th>
         </tr>
         </thead> -->
+<<<<<<< Updated upstream
         <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
@@ -98,6 +99,42 @@
             </tr>
         </tfoot>
     </table>
+=======
+        <table id="tes" class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">No. Surat</th>
+                            <th class="text-center">Tgl Surat Keluar</th>
+                            <th class="text-center">Pengirim</th>
+                            <th class="text-center">Penerima</th>
+                            <th class="text-center">Perihal</th>
+                            <th class="text-center">Disposisi</th>
+                            <th colspan="4" class="text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($surat_masuk as $sm) : ?>
+                            <tr>
+                                <td scope="row" class="text-center"><?= $i; ?></td>
+                                <td class="text-center"><?= $sm['no_surat']; ?></td>
+                                <td class="text-center"><?= $sm['tgl_suratMasuk']; ?></td>
+                                <td class="text-center"><?= $sm['pengirim']; ?></td>
+                                <td class="text-center"><?= $sm['penerima']; ?></td>
+                                <td class="text-center"><?= $sm['perihal']; ?></td>
+                                <td class="text-center"><?= $sm['disposisi']; ?></td>
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-success mb-3" href="">Update</a>
+                                    <a class="btn btn-sm btn-danger mb-3" href="">Delete</a>
+                                    <a class="btn btn-sm btn-warning mb-3" href="">Print</a>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+>>>>>>> Stashed changes
 </div>
 <!-- /.container-fluid -->
 
