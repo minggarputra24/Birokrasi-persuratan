@@ -2,6 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
+    
     <h1 class="h3 mb-3 text-gray-800"><i class="fas fa-inbox"></i> <?= $title; ?></h1>
 
     <div class="row">

@@ -11,15 +11,22 @@
     </div> -->
 
     <hr class="border-dark border-5 mt-1">
+<<<<<<< Updated upstream
     <a href="<?= base_url('user/tambahSuratMasuk') ;?>" class="btn btn-primary mb-3">
     <i class="fas fa-envelope-open-text"></i>
     Tambah Surat Masuk Baru
+=======
+        <a href="#" class="btn btn-primary mb-3">
+        <i class="fas fa-envelope-open-text"></i>
+        Tambah Surat Masuk Baru
+>>>>>>> Stashed changes
     </a>
     
-    <div class="input-group rounded mb-3">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-        aria-describedby="search-addon" />
-            <span class="input-group-text border-5" id="search-addon">
+    <div class="input-group rounded mb-3 mr-lg-5">
+        <input type="search" class="rounded mr-2 border-0" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+        <!-- <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+        aria-describedby="search-addon" /> -->
+            <span class="input-group-text border-0" id="search-addon">
                 <i class="fas fa-search"></i>
             </span>
     </div>
