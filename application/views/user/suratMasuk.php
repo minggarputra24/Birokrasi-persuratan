@@ -11,15 +11,9 @@
     </div> -->
 
     <hr class="border-dark border-5 mt-1">
-<<<<<<< Updated upstream
     <a href="<?= base_url('user/tambahSuratMasuk') ;?>" class="btn btn-primary mb-3">
     <i class="fas fa-envelope-open-text"></i>
     Tambah Surat Masuk Baru
-=======
-        <a href="#" class="btn btn-primary mb-3">
-        <i class="fas fa-envelope-open-text"></i>
-        Tambah Surat Masuk Baru
->>>>>>> Stashed changes
     </a>
     
     <div class="input-group rounded mb-3 mr-lg-5">
@@ -57,56 +51,6 @@
             <th colspan="4" class="text-center">Aksi</th>
         </tr>
         </thead> -->
-<<<<<<< Updated upstream
-        <table id="example" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- <tr>
-                <td class="text-center">
-                    <a  class="btn btn-sm btn-success mb-2">Update</a>
-                    <a  class="btn btn-sm btn-danger mb-2">Delete</a> <br>
-                    <a  class="btn btn-sm btn-warning mb-3">Print</a>
-                    <a  class="btn btn-sm btn-info mb-3">Disposisi</a>
-                </td>
-            </tr> -->
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-            </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
-=======
         <table id="tes" class="table table-bordered table-striped">
                     <thead class="table-dark">
                         <tr>
@@ -141,7 +85,6 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
->>>>>>> Stashed changes
 </div>
 <!-- /.container-fluid -->
 

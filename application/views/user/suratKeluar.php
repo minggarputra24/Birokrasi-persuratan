@@ -20,6 +20,16 @@
                     <i class="fas fa-envelope-open-text"></i>
                     Tambah Surat Keluar
                 </a>
+
+                    <!-- Kolom Search -->
+                <div class="input-group rounded mb-3 mr-lg-5">
+                    <input type="search" class="rounded mr-2 border-0" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                    <!-- <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" /> -->
+                    <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
                 <table id="tes" class="table table-bordered table-striped">
                     <thead class="table-dark">
                         <tr>
@@ -62,39 +72,9 @@
         });
     </script> -->
 
-<<<<<<< Updated upstream
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-        <tr>
-            <th class="text-center">No</th>
-            <th class="text-center">No. Surat</th>
-            <th class="text-center">Tgl Surat</th>
-            <th class="text-center">Asal Surat</th>
-            <th class="text-center">Deskripsi</th>
-            <th colspan="4" class="text-center">Aksi</th>
-        </tr>
-        </thead>
-        
-            <tr>
-                <td scope="row" class="text-center">1</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center">
-                <a  class="btn btn-sm btn-success mb-2">Update</a>
-                    <a  class="btn btn-sm btn-danger mb-2">Delete</a> <br>
-                    <a  class="btn btn-sm btn-warning mb-3">Print</a>
-                    <a  class="btn btn-sm btn-info mb-3">Disposisi</a>
-                </td>
-            </tr>
-        
-    </table>
-=======
         <!-- /.container-fluid -->
     </div>
     <!-- End of Main Content -->
->>>>>>> Stashed changes
 </div>
 
 <!-- Button trigger modal -->

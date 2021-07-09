@@ -15,8 +15,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $this->$this->form_validation->set_rules('noSk', 'NomorSuratKeluar', 'required');
-
+        // $this->$this->form_validation->set_rules('noSk', 'NomorSuratKeluar', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -131,24 +130,7 @@ class User extends CI_Controller
         }
     }
 
-<<<<<<< Updated upstream
-    public function users (){
-        $data['title'] = 'Users';
-        $data['user'] = $this->db->get_where('user', ['username' =>
-        $this->session->userdata('username')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/users', $data);
-        $this->load->view('templates/footer');
-    }
-
     public function suratMasuk (){
-=======
-    public function suratMasuk()
-    {
->>>>>>> Stashed changes
         $data['title'] = 'Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -162,11 +144,12 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-<<<<<<< Updated upstream
     public function tambahSuratMasuk (){
-        $data['title'] = 'Form Tambah Surat Masuk';
+        $data['title'] = 'Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
+
+        $data['surat_masuk'] = $this->db->get('surat_masuk')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -175,11 +158,8 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function suratKeluar (){
-=======
     public function suratKeluar()
     {
->>>>>>> Stashed changes
         $data['title'] = 'Surat Keluar';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -210,7 +190,10 @@ class User extends CI_Controller
                 'disposisi' => $this->input->post('disposisi')
             ];
             $this->db->insert('surat_keluar', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat Baru Berhasil Ditambah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Surat Baru Berhasil Ditambah!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> </div>');
             redirect('user/suratKeluar');
         }
     }
@@ -221,22 +204,74 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/disposisi', $data);
-        $this->load->view('templates/footer');
-    }
 
-    public function tambahDisposisi (){
-        $data['title'] = 'Form Tambah Data Disposisi';
+
+        $data['disposisi'] = $this->db->get('disposisi')->result_array();
+        $this->form_validation->set_rules('surat_dari', 'Surat dari', 'required');
+        $this->form_validation->set_rules('tgl_surat', 'Tanggal Surat', 'required');
+        $this->form_validation->set_rules('no_surat', 'Nomor Surat', 'required');
+        $this->form_validation->set_rules('diterima_tgl', 'Diterima Tanggal', 'required');
+        $this->form_validation->set_rules('no_agenda', 'Nomor Agenda', 'required');
+        $this->form_validation->set_rules('perihal', 'Perihal', 'required');
+        $this->form_validation->set_rules('diteruskan_kepada', 'Diteruskan Kepada');
+        $this->form_validation->set_rules('isi_disposisi', 'Isi Disposisi');
+        
+        if($this->form_validation->run() == false){
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/disposisi', $data);
+            $this->load->view('templates/footer');
+        } else  {
+            $data = [
+                'surat_dari' => $this->input->post('surat_dari'),
+                'tgl_surat' => $this->input->post('tgl_surat'),
+                'no_surat' => $this->input->post('no_surat'),
+                'diterima_tgl' => $this->input->post('diterima_tgl'),
+                'no_agenda' => $this->input->post('no_agenda'),
+                'perihal' => $this->input->post('perihal'),
+                'diteruskan_kepada' => $this->input->post('diteruskan_kepada'),
+                'isi_disposisi' => $this->input->post('isi_disposisi')
+            ];
+            $this->db->insert('disposisi', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Surat Baru Berhasil Ditambah!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> </div>');
+            redirect('user/disposisi');
+        }
+    }
+    
+
+    public function users()
+    {
+        $data['title'] = 'My Profile';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/tambahDisposisi', $data);
-        $this->load->view('templates/footer');
+        // $this->$this->form_validation->set_rules('noSk', 'NomorSuratKeluar', 'required');
+        $data['user'] = $this->db->get('user')->result_array();
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/profileUsers', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                            'id' => $this->input->post('id'),
+                            'nama_lengkap' => $this->input->post('nama_lengkap'),
+                            'username' => $this->input->post('username'),
+                            'image' => $this->input->post('image'),
+                            'password' => $this->input->post('password'),
+                            'role_id' => $this->input->post('role_id'),
+                            'is_active' => $this->input->post('is_active'),
+                            'date_created' => $this->input->post('date_created')
+                        ];
+            $this->db->insert('user', ['user' => $this->input->post('user')]);
+            $this->session->$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat Keluar Berhasil Ditambahkan!</div>');
+            redirect('profileUsers');
+        }
     }
 }
