@@ -39,14 +39,14 @@
                             <tr>
                                 <td scope="row" class="text-center"><?= $i; ?></td>
                                 <td class="text-center"><?= $sk['no_surat']; ?></td>
-                                <td class="text-center"><?= $sk['tgl_suratKeluar']; ?></td>
+                                <td class="text-center"><?= date('d F Y', strtotime($sk['tgl_suratKeluar'])); ?></td>
                                 <td class="text-center"><?= $sk['pengirim']; ?></td>
                                 <td class="text-center"><?= $sk['penerima']; ?></td>
                                 <td class="text-center"><?= $sk['perihal']; ?></td>
                                 <td class="text-center"><?= $sk['disposisi']; ?></td>
                                 <td class="text-center">
-                                    <a class="btn btn-sm btn-success mb-3" href="">Update</a>
-                                    <a class="btn btn-sm btn-danger mb-3" href="">Delete</a>
+                                    <a class="btn btn-sm btn-success mb-3" data-toggle="modal" data-target="#updateSkModal" href="">Update</a>
+                                    <a class="btn btn-sm btn-danger mb-3" href="<?= base_url('user/deleteSK/') . $sk['id_suratKeluar']; ?>" onclick="return confirm('Yakin Data ini akan dihapus?');">Delete</a>
                                     <a class="btn btn-sm btn-warning mb-3" href="">Print</a>
                                 </td>
                             </tr>
@@ -62,44 +62,12 @@
         });
     </script> -->
 
-<<<<<<< Updated upstream
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-        <tr>
-            <th class="text-center">No</th>
-            <th class="text-center">No. Surat</th>
-            <th class="text-center">Tgl Surat</th>
-            <th class="text-center">Asal Surat</th>
-            <th class="text-center">Deskripsi</th>
-            <th colspan="4" class="text-center">Aksi</th>
-        </tr>
-        </thead>
-        
-            <tr>
-                <td scope="row" class="text-center">1</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center"> contoh</td>
-                <td class="text-center">
-                <a  class="btn btn-sm btn-success mb-2">Update</a>
-                    <a  class="btn btn-sm btn-danger mb-2">Delete</a> <br>
-                    <a  class="btn btn-sm btn-warning mb-3">Print</a>
-                    <a  class="btn btn-sm btn-info mb-3">Disposisi</a>
-                </td>
-            </tr>
-        
-    </table>
-=======
-        <!-- /.container-fluid -->
     </div>
-    <!-- End of Main Content -->
->>>>>>> Stashed changes
 </div>
 
 <!-- Button trigger modal -->
 
-<!-- Modal -->
+<!-- Modal Tambah Surat Keluar -->
 <div class="modal fade" id="newSkModal" tabindex="-1" aria-labelledby="newSkModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -139,6 +107,54 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
                     <button type="submit" class="btn btn-primary">Tambah Surat Keluar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update Surat Keluar -->
+<div class="modal fade" id="updateSkModal" tabindex="-1" aria-labelledby="updateSkModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateSkModal">Update Surat Keluar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url('user/suratKeluar'); ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group text-gray-800">
+                        <b><label for="no_surat">No. Surat Keluar</label></b>
+                        <!-- <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder=""> -->
+                        <input type="text" class="form-control" id="no_surat" name="no_surat" value="<?= $sk['no_surat']; ?>">
+                        <?= form_error('no_surat', '<small class="text-danger pl-3">', ' </small>'); ?>
+                    </div>
+                    <div class="form-group text-gray-800">
+                        <b><label for="tgl_suratKeluar">Tanggal Surat Keluar</label></b>
+                        <input type="date" class="form-control" id="tgl_suratKeluar" name="tgl_suratKeluar" value="<?= $sk['tgl_suratKeluar'] ?>">
+                    </div>
+                    <div class="form-group text-gray-800">
+                        <b><label for="pengirim">Pengirim</label></b>
+                        <input type="text" class="form-control" id="pengirim" name="pengirim" value="<?= $sk['pengirim'] ?>">
+                    </div>
+                    <div class="form-group text-gray-800">
+                        <b><label for="penerima">Penerima</label></b>
+                        <input type="text" class="form-control" id="penerima" name="penerima" value="<?= $sk['penerima'] ?>">
+                    </div>
+                    <div class="form-group text-gray-800">
+                        <b><label for="perihal">Perihal</label></b>
+                        <input type="text" class="form-control" id="perihal" name="perihal" value="<?= $sk['perihal'] ?>">
+                    </div>
+                    <div class="form-group text-gray-800">
+                        <b><label for="disposisi">Disposisi</label></b>
+                        <input type="text" class="form-control" id="disposisi" name="disposisi" value="<?= $sk['disposisi'] ?>">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                    <button type="submit" class="btn btn-primary">Update Surat Keluar</button>
                 </div>
             </form>
         </div>

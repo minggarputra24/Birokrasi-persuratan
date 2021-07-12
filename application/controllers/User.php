@@ -7,6 +7,8 @@ class User extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+
+        $this->load->model('surat_model');
     }
 
     public function index()
@@ -14,8 +16,6 @@ class User extends CI_Controller
         $data['title'] = 'My Profile';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
-
-        $this->$this->form_validation->set_rules('noSk', 'NomorSuratKeluar', 'required');
 
 
         if ($this->form_validation->run() == false) {
@@ -131,24 +131,8 @@ class User extends CI_Controller
         }
     }
 
-<<<<<<< Updated upstream
-    public function users (){
-        $data['title'] = 'Users';
-        $data['user'] = $this->db->get_where('user', ['username' =>
-        $this->session->userdata('username')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/users', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function suratMasuk (){
-=======
     public function suratMasuk()
     {
->>>>>>> Stashed changes
         $data['title'] = 'Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -162,8 +146,8 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-<<<<<<< Updated upstream
-    public function tambahSuratMasuk (){
+    public function tambahSuratMasuk()
+    {
         $data['title'] = 'Form Tambah Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -175,11 +159,8 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function suratKeluar (){
-=======
     public function suratKeluar()
     {
->>>>>>> Stashed changes
         $data['title'] = 'Surat Keluar';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
@@ -215,6 +196,29 @@ class User extends CI_Controller
         }
     }
 
+    public function deleteSK($id)
+    {
+        // $this->surat_model->hapusSuratKeluar($id);
+        // $this->session->$this->session->set_flashdata('flash_data', 'dihapus');
+        // redirect('suratKeluar', 'refresh');
+        // $id = $this->input->post('id_suratKeluar');
+        // $this->surat_model->hapus_suratKeluar($id);
+
+        // $hapus = $this->surat_model->hapus_suratKeluar($id);
+        // if ($hapus) {
+        // $this->session->set_flashdata('id_suratKeluar', 'Dihapus');
+        $this->surat_model->hapus_suratKeluar($id);
+        // $this->session->set_flashdata('flash-data', 'Dihapus');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat Keluar Berhasil Dihapus!</div>');
+
+        // return redirect()->to(site_url('suratKeluar'));
+        // echo "<script>window.location='" . site_url('user/suratKeluar') . "';</script>";
+        // redirect('user/suratKeluar', 'refresh');
+        redirect('user/suratKeluar');
+        // }
+        // echo "<script>window.location='" . site_url('user/') . "';</script>";
+    }
+
     public function disposisi()
     {
         $data['title'] = 'Disposisi';
@@ -228,7 +232,8 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function tambahDisposisi (){
+    public function tambahDisposisi()
+    {
         $data['title'] = 'Form Tambah Data Disposisi';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
