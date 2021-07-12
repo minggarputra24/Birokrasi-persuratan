@@ -6,7 +6,11 @@
 
     <!-- Topbar -->
     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-        <span class="h5 text-gray-800 ml-2 mt-3 font-weight-bold">UPT. Pelayanan Jasa dan Kebandarudaraan Abdulrachman Saleh <br> <p class="font-weight-light"> Kota Malang </p></span>
+        <span class="h5 text-gray-800 ml-2 mt-3 font-weight-bold">
+            UPT. Pelayanan Jasa dan Kebandarudaraan Abdulrachman Saleh <br> 
+            <p class="font-weight-light"> Kota Malang </p>
+        </span>
+    
 
         <!-- Sidebar Toggle (Topbar) -->
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -63,4 +67,5 @@
         </ul>
 
     </nav>
+    
     <!-- End of Topbar -->

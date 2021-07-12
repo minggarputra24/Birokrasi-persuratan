@@ -21,6 +21,16 @@
                     <i class="fas fa-envelope-open-text"></i>
                     Tambah Surat Keluar
                 </a>
+
+                    <!-- Kolom Search -->
+                <div class="input-group rounded mb-3 mr-lg-5">
+                    <input type="search" class="rounded mr-2 border-0" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                    <!-- <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" /> -->
+                    <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
                 <table id="tes" class="table table-bordered table-striped">
                     <thead class="table-dark">
                         <tr>
@@ -63,7 +73,13 @@
         });
     </script> -->
 
+<<<<<<< HEAD
     </div>
+=======
+        <!-- /.container-fluid -->
+    </div>
+    <!-- End of Main Content -->
+>>>>>>> 6b1dea5a05a28b66a32e9468ebc145e1d5c09398
 </div>
 
 <!-- Button trigger modal -->
