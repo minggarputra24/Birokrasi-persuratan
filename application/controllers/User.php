@@ -196,6 +196,42 @@ class User extends CI_Controller
         }
     }
 
+    public function tambahSuratKeluar()
+    {
+        $data['title'] = 'Form Tambah Surat Keluar';
+        $data['user'] = $this->db->get_where('user', ['username' =>
+        $this->session->userdata('username')])->row_array();
+
+        $data['surat_keluar'] = $this->db->get('surat_keluar')->result_array();
+        $this->form_validation->set_rules('no_surat', 'No Surat', 'required');
+        $this->form_validation->set_rules('tgl_suratKeluar', 'Tanggal Surat', 'required');
+        $this->form_validation->set_rules('pengirim', 'Pengirim', 'required');
+        $this->form_validation->set_rules('penerima', 'Penerima', 'required');
+        $this->form_validation->set_rules('perihal', 'Perihal', 'required');
+        $this->form_validation->set_rules('disposisi', 'Disposisi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/tambahSuratKeluar', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'no_surat' => $this->input->post('no_surat'),
+                'tgl_suratKeluar' => $this->input->post('tgl_suratKeluar'),
+                'pengirim' => $this->input->post('pengirim'),
+                'penerima' => $this->input->post('penerima'),
+                'no_surat' => $this->input->post('no_surat'),
+                'perihal' => $this->input->post('perihal'),
+                'disposisi' => $this->input->post('disposisi')
+            ];
+            $this->db->insert('surat_keluar', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat Baru Berhasil Ditambah!</div>');
+            redirect('user/suratKeluar');
+        }
+    }
+
     public function deleteSK($id)
     {
         // $this->surat_model->hapusSuratKeluar($id);
@@ -219,29 +255,93 @@ class User extends CI_Controller
         // echo "<script>window.location='" . site_url('user/') . "';</script>";
     }
 
-    public function disposisi()
+    public function updateSuratKeluar()
     {
-        $data['title'] = 'Disposisi';
+        $data['title'] = 'Form Update Surat Keluar';
         $data['user'] = $this->db->get_where('user', ['username' =>
         $this->session->userdata('username')])->row_array();
 
+        $data['surat_keluar'] = $this->db->get('surat_keluar')->result_array();
+
+        // $this->form_validation->set_rules('name', 'Nama Lengkap', 'required|trim');
+        // $this->form_validation->set_rules('username', 'Username', 'required|trim');
+
+        // if ($this->form_validation->run() == false) {
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('user/disposisi', $data);
+        $this->load->view('user/updateSuratKeluar', $data);
         $this->load->view('templates/footer');
+        // } else {
+        //     $noSK = $this->input->post('no_surat');
+        //     $tglSK = $this->input->post('tgl_suratKeluar');
+        //     $pengirim = $this->input->post('pengirim');
+        //     $penerima = $this->input->post('penerima');
+        //     $perihal = $this->input->post('perihal');
+        //     $disposisi = $this->input->post('disposisi');
+
+        //  Cek Jika Ada Gambar Yang Akan di Upload   
+        // $upload_image = $_FILES['image']['name'];
+
+        // if ($upload_image) {
+        //     $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        //     $config['max_size']     = '2048';
+        //     $config['upload_path'] = './assets/img/profile/';
+
+        //     $this->load->library('upload', $config);
+
+        //     if ($this->upload->do_upload('image')) {
+
+        //         $old_image = $data['user']['image'];
+        //         if ($old_image != 'default.jpg') {
+        //             unlink(FCPATH . 'assets/img/profile/' . $old_image);
+        //         }
+
+        //         $new_image = $this->upload->data('file_name');
+        //         $this->db->set('image', $new_image);
+        //     } else {
+        //         echo $this->upload->dispaly_errors();
+        //     }
     }
 
-    public function tambahDisposisi()
-    {
-        $data['title'] = 'Form Tambah Data Disposisi';
-        $data['user'] = $this->db->get_where('user', ['username' =>
-        $this->session->userdata('username')])->row_array();
+    // $this->db->set('username', $username);
+    //     $this->db->set('no_surat', $noSK);
+    //     $this->db->set('tgl_suratKeluar', $tglSK);
+    //     $this->db->set('pengirim', $pengirim);
+    //     $this->db->set('penerima', $penerima);
+    //     $this->db->set('perihal', $perihal);
+    //     $this->db->set('disposisi', $disposisi);
+    //     $this->db->update('surat_keluar');
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/tambahDisposisi', $data);
-        $this->load->view('templates/footer');
-    }
+    //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+    //         Update Surat Keluar berhasil!</div>');
+    //     redirect('user/updateSuratKeluar');
+    // }
+
+
+    // public function disposisi()
+    // {
+    //     $data['title'] = 'Disposisi';
+    //     $data['user'] = $this->db->get_where('user', ['username' =>
+    //     $this->session->userdata('username')])->row_array();
+
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('user/disposisi', $data);
+    //     $this->load->view('templates/footer');
+    // }
+
+    // public function tambahDisposisi()
+    // {
+    //     $data['title'] = 'Form Tambah Data Disposisi';
+    //     $data['user'] = $this->db->get_where('user', ['username' =>
+    //     $this->session->userdata('username')])->row_array();
+
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('user/tambahDisposisi', $data);
+    //     $this->load->view('templates/footer');
+    // }
 }

@@ -16,7 +16,8 @@
             <div class="table-responsive">
                 <hr style="margin:0px">
                 <br>
-                <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSkModal">
+                <!-- <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSkModal"> -->
+                <a href="<?= base_url('user/tambahSuratKeluar') ?>" class="btn btn-primary mb-3">
                     <i class="fas fa-envelope-open-text"></i>
                     Tambah Surat Keluar
                 </a>
@@ -45,7 +46,7 @@
                                 <td class="text-center"><?= $sk['perihal']; ?></td>
                                 <td class="text-center"><?= $sk['disposisi']; ?></td>
                                 <td class="text-center">
-                                    <a class="btn btn-sm btn-success mb-3" data-toggle="modal" data-target="#updateSkModal" href="">Update</a>
+                                    <a class="btn btn-sm btn-success mb-3" href="<?= base_url('user/updateSuratKeluar'); ?>">Update</a>
                                     <a class="btn btn-sm btn-danger mb-3" href="<?= base_url('user/deleteSK/') . $sk['id_suratKeluar']; ?>" onclick="return confirm('Yakin Data ini akan dihapus?');">Delete</a>
                                     <a class="btn btn-sm btn-warning mb-3" href="">Print</a>
                                 </td>
@@ -107,54 +108,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
                     <button type="submit" class="btn btn-primary">Tambah Surat Keluar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Update Surat Keluar -->
-<div class="modal fade" id="updateSkModal" tabindex="-1" aria-labelledby="updateSkModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateSkModal">Update Surat Keluar</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="<?= base_url('user/suratKeluar'); ?>" method="post">
-                <div class="modal-body">
-                    <div class="form-group text-gray-800">
-                        <b><label for="no_surat">No. Surat Keluar</label></b>
-                        <!-- <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder=""> -->
-                        <input type="text" class="form-control" id="no_surat" name="no_surat" value="<?= $sk['no_surat']; ?>">
-                        <?= form_error('no_surat', '<small class="text-danger pl-3">', ' </small>'); ?>
-                    </div>
-                    <div class="form-group text-gray-800">
-                        <b><label for="tgl_suratKeluar">Tanggal Surat Keluar</label></b>
-                        <input type="date" class="form-control" id="tgl_suratKeluar" name="tgl_suratKeluar" value="<?= $sk['tgl_suratKeluar'] ?>">
-                    </div>
-                    <div class="form-group text-gray-800">
-                        <b><label for="pengirim">Pengirim</label></b>
-                        <input type="text" class="form-control" id="pengirim" name="pengirim" value="<?= $sk['pengirim'] ?>">
-                    </div>
-                    <div class="form-group text-gray-800">
-                        <b><label for="penerima">Penerima</label></b>
-                        <input type="text" class="form-control" id="penerima" name="penerima" value="<?= $sk['penerima'] ?>">
-                    </div>
-                    <div class="form-group text-gray-800">
-                        <b><label for="perihal">Perihal</label></b>
-                        <input type="text" class="form-control" id="perihal" name="perihal" value="<?= $sk['perihal'] ?>">
-                    </div>
-                    <div class="form-group text-gray-800">
-                        <b><label for="disposisi">Disposisi</label></b>
-                        <input type="text" class="form-control" id="disposisi" name="disposisi" value="<?= $sk['disposisi'] ?>">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button type="submit" class="btn btn-primary">Update Surat Keluar</button>
                 </div>
             </form>
         </div>
